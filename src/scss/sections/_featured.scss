@@ -1,0 +1,55 @@
+.featured_wrapper {
+  margin: 0 auto;
+  width: 128rem;
+  margin-top: 9rem;
+  height: 80rem;
+  overflow: hidden;
+}
+
+.featured-stripe {
+  position: relative;
+
+  &__item {
+    width: 23rem;
+    height: 120rem;
+    position: absolute;
+  }
+}
+.featured-text {
+  position: relative;
+  &__number {
+    font-size: 26rem;
+    color: #ffffff;
+    transform: translate(26rem, 17rem);
+    position: absolute;
+    -webkit-transform: translate(26rem, 17rem);
+    -moz-transform: translate(26rem, 17rem);
+    -ms-transform: translate(26rem, 17rem);
+    -o-transform: translate(26rem, 17rem);
+  }
+
+  &__player {
+    width: 50rem;
+    height: 50rem;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    position: absolute;
+  }
+  &__first {
+    position: absolute;
+    background: #0e1731;
+    color: #ffffff;
+    font-size: 9rem;
+    text-transform: uppercase;
+    padding: 0px 2rem;
+  }
+
+  &__second {
+    position: absolute;
+    background: #0e1731;
+    color: #ffffff;
+    font-size: 9rem;
+    text-transform: uppercase;
+    padding: 0px 2rem;
+  }
+}

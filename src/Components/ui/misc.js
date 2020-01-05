@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Tag = props => {
   const template = (
-    <div
+    <span
       className={`${props.className ? props.className : ""}`}
       style={{
         background: props.background,
@@ -16,7 +16,7 @@ export const Tag = props => {
       }}
     >
       {props.children}
-    </div>
+    </span>
   );
   return props.link ? <Link to={props.linkTo}>{template}</Link> : template;
 };

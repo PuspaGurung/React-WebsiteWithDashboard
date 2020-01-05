@@ -1,0 +1,51 @@
+.home-meetplayers {
+  background: $color-white-primary;
+
+  .home-meetplayers-wrapper {
+    padding: 7rem 0 10rem;
+    display: flex;
+    justify-content: space-between;
+
+    // CARD
+    .meetplayer-cards {
+      position: relative;
+      width: 63%;
+      &__item {
+        background: $color-white-primary;
+        border: 1px solid $color-white-secondary;
+        width: 300px;
+        padding: 10px 10px 20px 10px;
+      }
+      .playercard-item {
+        &__img {
+          border: 1px solid $color-white-secondary;
+          width: 100%;
+          height: 25rem;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+        }
+        &__number {
+          color: $color-blue-tertiary;
+          font-size: 18.5rem;
+          text-align: right;
+          line-height: 16rem;
+        }
+        &__name {
+          position: absolute;
+          bottom: 1rem;
+          span {
+            display: block;
+            font-size: 2.5rem;
+            color: $color-blue-primary;
+          }
+        }
+      }
+    }
+    //TEXT
+    .meetplayer-text {
+      width: 35%;
+    }
+  }
+}

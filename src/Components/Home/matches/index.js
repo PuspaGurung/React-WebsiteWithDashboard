@@ -1,20 +1,22 @@
 import React from "react";
 import { Tag } from "../../ui/misc";
+import Blocks from "./Blocks";
 
 const MatchesHome = () => {
   return (
-    <div className="home-matches_wrapper">
+    <section className="home-matches">
       <div className="container">
         <Tag
           background="#0e1731"
           size="5rem"
           color="#ffffff"
           add={{
-            marginBottom: "2rem"
+            padding: "0 2rem"
           }}
         >
-          Matcges
+          Matches
         </Tag>
+        <Blocks />
         <Tag
           color="#0e1731"
           background="#ffffff"
@@ -26,7 +28,7 @@ const MatchesHome = () => {
           See more matches
         </Tag>
       </div>
-    </div>
+    </section>
   );
 };
 

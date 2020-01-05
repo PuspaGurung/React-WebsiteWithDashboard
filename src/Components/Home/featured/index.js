@@ -4,10 +4,12 @@ import Text from "./Text";
 
 const Featured = () => {
   return (
-    <div className="featured_wrapper">
-      <Stripe />
-      <Text />
-    </div>
+    <section className="featured">
+      <div className="featured-container">
+        <Stripe />
+        <Text />
+      </div>
+    </section>
   );
 };
 

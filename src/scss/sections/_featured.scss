@@ -1,9 +1,11 @@
-.featured_wrapper {
-  margin: 0 auto;
-  width: 128rem;
-  margin-top: 9rem;
-  height: 80rem;
-  overflow: hidden;
+.featured {
+  &-container {
+    margin: 0 auto;
+    width: 128rem;
+    margin-top: 9rem;
+    height: 80rem;
+    overflow: hidden;
+  }
 }
 
 .featured-stripe {

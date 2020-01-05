@@ -8,16 +8,16 @@ class HomeCards extends Component {
   state = {
     cards: [
       {
-        bottom: 90,
-        left: 300
+        bottom: "9rem",
+        left: "30rem"
       },
       {
-        bottom: 60,
-        left: 200
+        bottom: "6rem",
+        left: "20rem"
       },
       {
-        bottom: 30,
-        left: 100
+        bottom: "3rem",
+        left: "10rem"
       },
       {
         bottom: "",

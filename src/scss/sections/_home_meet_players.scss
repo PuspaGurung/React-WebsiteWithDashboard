@@ -13,8 +13,8 @@
       &__item {
         background: $color-white-primary;
         border: 1px solid $color-white-secondary;
-        width: 300px;
-        padding: 10px 10px 20px 10px;
+        width: 30rem;
+        padding: 1rem 1rem 2rem;
       }
       .playercard-item {
         &__img {
@@ -39,6 +39,7 @@
             display: block;
             font-size: 2.5rem;
             color: $color-blue-primary;
+            text-transform: uppercase;
           }
         }
       }

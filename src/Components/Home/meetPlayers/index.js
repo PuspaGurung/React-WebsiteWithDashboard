@@ -63,6 +63,7 @@ class MeetPlayers extends Component {
                 </Tag>
                 <div className="link-meet-team">
                   <Tag
+                    className="link-meet-team"
                     background="#fff"
                     size="2.7rem"
                     color="#0d1831"

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const Tag = props => {
   const template = (
     <span
-      className={`${props.className ? props.className : ""}`}
       style={{
         background: props.background,
         fontSize: props.size,
@@ -18,7 +17,16 @@ export const Tag = props => {
       {props.children}
     </span>
   );
-  return props.link ? <Link to={props.linkTo}>{template}</Link> : template;
+  return props.link ? (
+    <Link
+      className={`btn ${props.className ? props.className : null}`}
+      to={props.linkTo}
+    >
+      {template}
+    </Link>
+  ) : (
+    template
+  );
 };
 
 export const firebaseLooper = snapshot => {

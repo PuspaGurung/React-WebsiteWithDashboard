@@ -23,7 +23,7 @@ const MatchesHome = () => {
           size="2.2rem"
           link={true}
           linkTo="/the_team"
-          className="hello"
+          className="link-more-matches"
         >
           See more matches
         </Tag>

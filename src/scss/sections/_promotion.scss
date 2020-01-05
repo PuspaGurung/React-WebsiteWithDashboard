@@ -1,0 +1,25 @@
+.promotion {
+  padding: 8rem 0 8rem;
+  .promotion-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left {
+      text-transform: uppercase;
+      font-size: 15rem;
+      flex-grow: 1;
+      color: $color-blue-tertiary;
+      span {
+        display: block;
+      }
+    }
+
+    &__right {
+      .promotion-img {
+        width: 28rem;
+        height: 28rem;
+      }
+    }
+  }
+}

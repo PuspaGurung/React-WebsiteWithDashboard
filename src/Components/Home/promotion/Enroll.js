@@ -28,6 +28,7 @@ class Enroll extends Component {
   };
   updateForm = element => {
     const newFormData = { ...this.state.formData };
+
     const newElement = { ...newFormData[element.id] };
     newElement.value = element.event.target.value;
     let validData = validateForm(newElement);
@@ -36,7 +37,6 @@ class Enroll extends Component {
     newElement.validationMessage = validData[1];
 
     newFormData[element.id] = newElement;
-    console.log(newFormData);
     this.setState({
       formError: false,
       formData: newFormData
@@ -70,6 +70,7 @@ class Enroll extends Component {
       dataToSubmit[key] = this.state.formData[key].value;
       formIsValid = this.state.formData[key].valid && formIsValid;
     }
+
     if (formIsValid) {
       firebasePromotions
         .orderByChild("email")
@@ -105,6 +106,7 @@ class Enroll extends Component {
               id={"email"}
               formData={this.state.formData.email}
               change={element => this.updateForm(element)}
+              className="enroll-form__input"
             />
             {this.state.formError ? (
               <div className="enroll-form__error-label">Something is wrong</div>
@@ -112,8 +114,11 @@ class Enroll extends Component {
             <div className="enroll-form__success-label">
               {this.state.formSuccess}
             </div>
-            <button className="enroll-form__btn btn" type="submit">
-              <span>Enroll</span>
+            <button
+              className="enroll-form__btn btn btn-secondary"
+              type="submit"
+            >
+              Enroll
             </button>
           </form>
           <div className="enroll-discl">

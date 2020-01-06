@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
-const FormField = ({ id, formData, change }) => {
+const FormField = ({ id, formData, change, className }) => {
   const showError = () => {
     let errorMessage = (
-      <div className="input-error">
+      <div className="utl-input-error">
         {formData.validation && !formData.valid
           ? formData.validationMessage
           : null}
@@ -12,15 +12,16 @@ const FormField = ({ id, formData, change }) => {
     return errorMessage;
   };
   const renderTemplate = () => {
-    let fornmTemplate = null;
+    let formTemplate = null;
     switch (formData.element) {
       case "input":
-        fornmTemplate = (
+        formTemplate = (
           <Fragment>
             <input
               {...formData.config}
               value={formData.value}
               onChange={event => change({ event, id })}
+              className="utl-input"
             />
             {showError()}
           </Fragment>
@@ -28,12 +29,16 @@ const FormField = ({ id, formData, change }) => {
         break;
 
       default:
-        fornmTemplate = null;
+        formTemplate = null;
     }
-    return fornmTemplate;
+    return formTemplate;
   };
 
-  return <div className="enroll-form__input">{renderTemplate()}</div>;
+  return (
+    <div className={`${className ? className : null} utl-input-wrapper `}>
+      {renderTemplate()}
+    </div>
+  );
 };
 
 export default FormField;

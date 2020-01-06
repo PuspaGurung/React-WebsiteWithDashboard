@@ -3,9 +3,15 @@
 @import "./base";
 @import "./utilities";
 
-@import "./sections/header";
-@import "./sections/footer";
-@import "./sections/featured";
-@import "./sections/home_matches";
-@import "./sections/home_meet_players";
-@import "./sections/promotion";
+// HEADER-FOOTER
+@import "./sections/HeaderFooter/header";
+@import "./sections/HeaderFooter/footer";
+
+// HOME
+@import "./sections/Home/featured";
+@import "./sections/Home/home_matches";
+@import "./sections/Home/home_meet_players";
+@import "./sections/Home/promotion";
+
+//SIGN-IN
+@import "./sections/SignIn/signIn";

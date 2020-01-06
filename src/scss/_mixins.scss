@@ -24,7 +24,13 @@
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
 }
-
+@mixin transform-xy-minus50percent {
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+}
 //============== TRANSITION DELAY =================//
 @mixin transition-delay-sm {
   transition: all 0.3s;

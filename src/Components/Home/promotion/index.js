@@ -4,12 +4,7 @@ import Enroll from "./Enroll";
 
 const Promotion = () => {
   return (
-    <section
-      className="promotion"
-      style={{
-        background: "#fff"
-      }}
-    >
+    <section className="promotion">
       <div className="container">
         <PromotionAnimation />
         <Enroll />

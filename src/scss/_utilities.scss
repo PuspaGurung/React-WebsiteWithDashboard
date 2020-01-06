@@ -10,6 +10,8 @@
   overflow: hidden;
 
   span {
+    display: inline-block;
+    cursor: pointer;
     @include transition-delay-sm;
     position: relative;
     z-index: 10;
@@ -32,4 +34,10 @@
       left: 0;
     }
   }
+}
+
+//========= HEADING =========
+.heading-secondary {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
 }

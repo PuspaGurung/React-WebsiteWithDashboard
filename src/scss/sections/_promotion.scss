@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 6rem;
 
     &__left {
       text-transform: uppercase;
@@ -20,6 +21,64 @@
         width: 28rem;
         height: 28rem;
       }
+    }
+  }
+
+  .promotion-enroll {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .enroll-form {
+      margin-bottom: 2rem;
+      &__heading {
+        color: $color-black-secondary;
+      }
+
+      &__input {
+        width: 33.5rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        position: relative;
+        z-index: 12;
+
+        input[type="email"] {
+          width: 100%;
+          line-height: 4rem;
+          padding: 0 1.5rem;
+          outline: none;
+          border: 1px solid $color-white-secondary;
+          @include transition-delay-sm;
+
+          &:focus {
+            border: 1px solid $color-blue-primary;
+          }
+        }
+
+        .input-error,
+        .input-success {
+          color: $color-red;
+          font-size: 1rem;
+          position: absolute;
+          z-index: 13;
+          left: 50%;
+          @include transform-x-minus50percent;
+        }
+      }
+      &__error-label,
+      &__success-label {
+        color: $color-red;
+      }
+      &__btn {
+        span {
+          padding: 0.6rem 1.5rem;
+        }
+      }
+    }
+    .enroll-discl {
+      font-size: 1.4rem;
+      width: 40%;
+      margin: 0 auto;
+      padding: 1rem 0;
     }
   }
 }

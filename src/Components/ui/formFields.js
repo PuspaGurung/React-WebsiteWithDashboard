@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 const FormField = ({ id, formData, change, className }) => {
   const showError = () => {
     let errorMessage = (
-      <div className="utl-input-error">
+      <div className="input-validation-msg">
         {formData.validation && !formData.valid
           ? formData.validationMessage
           : null}
@@ -23,6 +23,7 @@ const FormField = ({ id, formData, change, className }) => {
               onChange={event => change({ event, id })}
               className="utl-input"
             />
+            {/* Error message:: if invalid E-mail format or Submit empty input */}
             {showError()}
           </Fragment>
         );

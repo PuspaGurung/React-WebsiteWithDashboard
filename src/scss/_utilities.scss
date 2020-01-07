@@ -96,13 +96,11 @@
   }
 }
 
-.utl-input-error,
-.utl-input-success {
+.input-validation-msg,
+.input-auth-msg {
   color: $color-red;
   font-size: 1rem;
   position: absolute;
   z-index: 13;
-  left: 50%;
   bottom: 0.3rem;
-  @include transform-x-minus50percent;
 }

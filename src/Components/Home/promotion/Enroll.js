@@ -28,7 +28,6 @@ class Enroll extends Component {
   };
   updateForm = element => {
     const newFormData = { ...this.state.formData };
-
     const newElement = { ...newFormData[element.id] };
     newElement.value = element.event.target.value;
     let validData = validateForm(newElement);

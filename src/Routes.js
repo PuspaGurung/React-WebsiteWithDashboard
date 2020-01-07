@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import PrivateRoute from "./Components/authRoutes/PrivateRoutes";
 
 import Layout from "./HOC/Layout";
 import Home from "./Components/Home";
@@ -11,7 +12,12 @@ const Routes = props => {
   return (
     <Layout>
       <Switch>
-        <Route component={Dashboard} path="/dashboard"></Route>
+        <PrivateRoute
+          {...props}
+          component={Dashboard}
+          exact
+          path="/dashboard"
+        />
         <Route component={SignIn} path="/sign-in" />
         <Route component={Home} path="/" />
       </Switch>

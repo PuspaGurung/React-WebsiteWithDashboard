@@ -1,7 +1,21 @@
-.user_dashboard {
-  font-size: 60px;
-  font-family: "Righteous", cursive;
-  color: #d5ebfe;
-  text-align: center;
-  margin-top: 200px;
+.admin {
+  .admin-container {
+    display: flex;
+
+    .admin__left-nav {
+      min-height: 100vh;
+      background: $color-black-tertiary;
+      border-right: 2px solid $color-blue-primary;
+    }
+    .admin__right {
+      flex-grow: 1;
+
+      .user-dashboard {
+        font-size: 6rem;
+        color: $color-blue-secondary;
+        text-align: center;
+        margin-top: 20rem;
+      }
+    }
+  }
 }

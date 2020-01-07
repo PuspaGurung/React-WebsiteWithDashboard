@@ -87,7 +87,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <section className="sign-in">
+      <main className="main sign-in">
         <div className="container">
           <div className="signin-wrapper">
             <form
@@ -118,7 +118,7 @@ class SignIn extends Component {
             </form>
           </div>
         </div>
-      </section>
+      </main>
     );
   }
 }

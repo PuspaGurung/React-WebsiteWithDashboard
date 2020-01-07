@@ -46,7 +46,7 @@ const AdminNav = () => {
           console.log("sign out");
         },
         error => {
-          console.log("error encounter");
+          console.log("error");
         }
       );
   };

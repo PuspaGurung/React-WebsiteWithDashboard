@@ -3,12 +3,14 @@ import AdminNav from "./../Components/admin/nav/AdminNav";
 
 const AdminLayout = props => {
   return (
-    <div className="admin_container">
-      <div className="admin_left_nav">
-        <AdminNav />
+    <main className="main admin">
+      <div className="admin-container">
+        <div className="admin__left-nav">
+          <AdminNav />
+        </div>
+        <div className="admin__right">{props.children}</div>
       </div>
-      <div className="admin_right">{props.children}</div>
-    </div>
+    </main>
   );
 };
 

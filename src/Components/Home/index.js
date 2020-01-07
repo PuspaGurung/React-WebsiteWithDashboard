@@ -6,7 +6,7 @@ import Promotion from "./promotion";
 
 const Home = () => {
   return (
-    <main>
+    <main className="main">
       <Featured />
       <Matches />
       <MeetPlayers />

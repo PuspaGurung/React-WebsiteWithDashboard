@@ -3,9 +3,12 @@ import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoutes = ({ user, component: Comp, ...rest }) => {
   return (
+    // The props from react-router
     <Route
       {...rest}
       component={props => {
+        console.log(props);
+
         return user ? (
           <Comp {...props} user={user} />
         ) : (

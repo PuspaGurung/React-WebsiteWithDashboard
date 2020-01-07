@@ -8,11 +8,19 @@ import Home from "./Components/Home";
 import SignIn from "./Components/Signin";
 import Dashboard from "./Components/admin/Dashboard";
 
+import AdminMatches from "./Components/admin/matches";
+
 const Routes = props => {
   console.log(props);
   return (
     <Layout>
       <Switch>
+        <PrivateRoute
+          {...props}
+          component={AdminMatches}
+          exact
+          path="/admin_matches"
+        />
         <PrivateRoute
           {...props}
           component={Dashboard}
@@ -22,7 +30,7 @@ const Routes = props => {
         <PublicRoute
           component={SignIn}
           {...props}
-          path="/sign-in"
+          path="/sign_in"
           restricted={true}
           exact
         />

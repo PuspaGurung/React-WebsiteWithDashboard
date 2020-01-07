@@ -12,7 +12,7 @@ const PrivateRoutes = ({ user, component: Comp, ...rest }) => {
         return user ? (
           <Comp {...props} user={user} />
         ) : (
-          <Redirect to="/sign-in" />
+          <Redirect to="/sign_in" />
         );
       }}
     />

@@ -10,11 +10,41 @@
     .admin__right {
       flex-grow: 1;
 
+      // ADMIN DASHBOARD
       .user-dashboard {
         font-size: 6rem;
         color: $color-blue-secondary;
         text-align: center;
         margin-top: 20rem;
+      }
+
+      // ADMIN MATCHES-DETAILS
+      .admin-matches-details {
+        table th {
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+        table {
+          margin-bottom: 4rem;
+
+          .matches-tag {
+            font-weight: bold;
+          }
+          .matches-tag--red {
+            color: #f44336;
+          }
+
+          .matches-tag--green {
+            color: #4caf50;
+          }
+        }
+        table td {
+          font-size: 1.2rem;
+        }
+        .admin-progress-icon {
+          text-align: center;
+          margin: 20px 0px;
+        }
       }
     }
   }

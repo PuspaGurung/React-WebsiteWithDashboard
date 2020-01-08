@@ -17,6 +17,9 @@ const FormField = ({ id, formData, change, className }) => {
       case "input":
         formTemplate = (
           <Fragment>
+            {formData.showLabel ? (
+              <div className="label_input">{formData.config.label}</div>
+            ) : null}
             <input
               {...formData.config}
               value={formData.value}
@@ -24,6 +27,27 @@ const FormField = ({ id, formData, change, className }) => {
               className="utl-input"
             />
             {/* Error message:: if invalid E-mail format or Submit empty input */}
+            {showError()}
+          </Fragment>
+        );
+        break;
+      case "select":
+        formTemplate = (
+          <Fragment>
+            {formData.showLabel ? (
+              <div className="label_input">{formData.config.label}</div>
+            ) : null}
+            <select
+              value={formData.value}
+              onChange={event => change({ event, id })}
+            >
+              <option value="">Select one</option>
+              {formData.config.options.map(item => (
+                <option key={item.key} value={item.key}>
+                  {item.value}
+                </option>
+              ))}
+            </select>
             {showError()}
           </Fragment>
         );
@@ -36,7 +60,7 @@ const FormField = ({ id, formData, change, className }) => {
   };
 
   return (
-    <div className={`${className ? className : null} utl-input-wrapper `}>
+    <div className={`${className ? className : ""} utl-input-wrapper `}>
       {renderTemplate()}
     </div>
   );

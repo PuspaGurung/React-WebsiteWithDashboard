@@ -9,12 +9,19 @@ import SignIn from "./Components/Signin";
 import Dashboard from "./Components/admin/Dashboard";
 
 import AdminMatches from "./Components/admin/matches";
+import AddEditMatch from "./Components/admin/matches/addEditMatches";
 
 const Routes = props => {
   console.log(props);
   return (
     <Layout>
       <Switch>
+        <PrivateRoute
+          {...props}
+          component={AddEditMatch}
+          exact
+          path="/admin_matches/edit_matches/:id"
+        />
         <PrivateRoute
           {...props}
           component={AdminMatches}

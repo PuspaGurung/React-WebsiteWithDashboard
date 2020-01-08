@@ -220,8 +220,10 @@ class AddEditMatch extends Component {
       });
     };
     return !matchId
-      ? ""
-      : firebaseDB
+      ? // Add match
+        getTeams(false, "Add Match")
+      : // Edit match
+        firebaseDB
           .ref(`matches/${matchId}`)
           .once("value")
           .then(snapshot => {
@@ -261,12 +263,25 @@ class AddEditMatch extends Component {
           .ref(`matches/${this.state.matchId}`)
           .update(dataToSubmit)
           .then(() => {
+            // Didplay Success message
             this.successForm("Update form correctly");
           })
           .catch(err => {
             this.setState({ formError: true });
           });
       } else {
+        firebaseMatches
+          // Add match to firebase
+          .push(dataToSubmit)
+          .then(() => {
+            //Redirect to admin_matches page
+            this.props.history.push("/admin_matches");
+          })
+          .catch(() => {
+            this.setState({
+              formError: true
+            });
+          });
       }
     } else {
       this.setState({

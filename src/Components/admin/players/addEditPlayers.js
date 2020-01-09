@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import AdminLayout from "../../../HOC/AdminLayout";
+import AdminLayout from "./../../../HOC/AdminLayout";
 
-import FormField from "../../ui/formFields";
-import { validateForm } from "../../ui/misc";
+import FormField from "./../../ui/formFields";
+import { validateForm } from "./../../ui/misc";
+
+import FileUploader from "./../../ui/fileUploader";
 import { firebasePlayers, firebaseDB, firebase } from "../../../firebase";
 
 class AddEditPlayers extends Component {
@@ -26,7 +28,7 @@ class AddEditPlayers extends Component {
         },
         valid: false,
         validationMessage: "",
-        showlabel: true
+        showLabel: true
       },
       lastname: {
         element: "input",
@@ -41,7 +43,7 @@ class AddEditPlayers extends Component {
         },
         valid: false,
         validationMessage: "",
-        showlabel: true
+        showLabel: true
       },
       number: {
         element: "input",
@@ -56,7 +58,7 @@ class AddEditPlayers extends Component {
         },
         valid: false,
         validationMessage: "",
-        showlabel: true
+        showLabel: true
       },
       position: {
         element: "select",
@@ -77,7 +79,7 @@ class AddEditPlayers extends Component {
         },
         valid: false,
         validationMessage: "",
-        showlabel: true
+        showLabel: true
       },
       image: {
         element: "image",
@@ -85,24 +87,24 @@ class AddEditPlayers extends Component {
         validation: {
           required: true
         },
-        valid: false
+        valid: true
       }
     }
   };
 
   updateFields = (player, playerId, formType, defaultImg) => {
-    const newformData = { ...this.state.formData };
+    const newFormData = { ...this.state.formData };
 
-    for (let key in newformData) {
-      newformData[key].value = player[key];
-      newformData[key].valid = true;
+    for (let key in newFormData) {
+      newFormData[key].value = player[key];
+      newFormData[key].valid = true;
     }
 
     this.setState({
       playerId,
       defaultImg,
       formType,
-      formData: newformData
+      formData: newFormData
     });
   };
 
@@ -144,8 +146,8 @@ class AddEditPlayers extends Component {
   }
 
   updateForm(element, content = "") {
-    const newformData = { ...this.state.formData };
-    const newElement = { ...newformData[element.id] };
+    const newFormData = { ...this.state.formData };
+    const newElement = { ...newFormData[element.id] };
 
     if (content === "") {
       newElement.value = element.event.target.value;
@@ -157,11 +159,11 @@ class AddEditPlayers extends Component {
     newElement.valid = validData[0];
     newElement.validationMessage = validData[1];
 
-    newformData[element.id] = newElement;
+    newFormData[element.id] = newElement;
 
     this.setState({
       formError: false,
-      formData: newformData
+      formData: newFormData
     });
   }
 
@@ -217,6 +219,21 @@ class AddEditPlayers extends Component {
     }
   }
 
+  resetImage = () => {
+    const newFormData = { ...this.state.formData };
+    newFormData["image"].value = "";
+    newFormData["image"].valid = false;
+
+    this.setState({
+      defaultImg: "",
+      formData: newFormData
+    });
+  };
+
+  storeFilename = filename => {
+    this.updateForm({ id: "image" }, filename);
+  };
+
   render() {
     return (
       <AdminLayout>
@@ -224,6 +241,15 @@ class AddEditPlayers extends Component {
           <h2>{this.state.formType}</h2>
           <div>
             <form onSubmit={event => this.submitForm(event)}>
+              <FileUploader
+                dir="players"
+                tag={"Player image"}
+                defaultImg={this.state.defaultImg}
+                defaultImgName={this.state.formData.image.value}
+                resetImage={() => this.resetImage()}
+                filename={filename => this.storeFilename(filename)}
+              />
+
               <FormField
                 id={"name"}
                 formData={this.state.formData.name}

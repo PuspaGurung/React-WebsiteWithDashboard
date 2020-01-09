@@ -239,6 +239,8 @@ class AddEditMatch extends Component {
       this.setState({
         formSuccess: ""
       });
+      // Redirect to admin_matches page
+      this.props.history.push("/admin_matches");
     }, 2000);
   }
   submitForm = event => {

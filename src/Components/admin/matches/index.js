@@ -49,7 +49,7 @@ class AdminMatches extends Component {
                       <TableRow key={i}>
                         <TableCell>{match.date}</TableCell>
                         <TableCell>
-                          <Link to={`/admin_matches/edit_matches/${match.id}`}>
+                          <Link to={`/admin_matches/edit_matche/${match.id}`}>
                             {match.away} <strong>-</strong> {match.local}
                           </Link>
                         </TableCell>

@@ -26,7 +26,7 @@ const FormField = ({ id, formData, change, className }) => {
               onChange={event => change({ event, id })}
               className="utl-input"
             />
-            {/* Error message:: if invalid E-mail format or Submit empty input */}
+            {/* Error message:: if invalid E-mail-format or Submit empty input */}
             {showError()}
           </Fragment>
         );

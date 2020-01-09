@@ -7,8 +7,6 @@ const PrivateRoutes = ({ user, component: Comp, ...rest }) => {
     <Route
       {...rest}
       component={props => {
-        console.log(props);
-
         return user ? (
           <Comp {...props} user={user} />
         ) : (

@@ -4,7 +4,7 @@ import AdminLayout from "./../../../HOC/AdminLayout";
 import FormField from "./../../ui/formFields";
 import { validateForm } from "./../../ui/misc";
 
-import FileUploader from "./../../ui/fileUploader";
+import Fileuploader from "./../../ui/fileUploader";
 import { firebasePlayers, firebaseDB, firebase } from "../../../firebase";
 
 class AddEditPlayers extends Component {
@@ -85,7 +85,7 @@ class AddEditPlayers extends Component {
         element: "image",
         value: "",
         validation: {
-          required: true
+          required: false
         },
         valid: true
       }
@@ -145,6 +145,8 @@ class AddEditPlayers extends Component {
     }
   }
 
+  // updateForm:: element: input/select  element
+  // updateForm:: content:  uploaded image
   updateForm(element, content = "") {
     const newFormData = { ...this.state.formData };
     const newElement = { ...newFormData[element.id] };
@@ -154,7 +156,7 @@ class AddEditPlayers extends Component {
     } else {
       newElement.value = content;
     }
-
+    // get validation status and validation message
     let validData = validateForm(newElement);
     newElement.valid = validData[0];
     newElement.validationMessage = validData[1];
@@ -189,18 +191,26 @@ class AddEditPlayers extends Component {
       formIsValid = this.state.formData[key].valid && formIsValid;
     }
 
+    // IF VALID FORM :: do either edit player or add player
     if (formIsValid) {
       if (this.state.formType === "Edit player") {
+        // EDIT PLAYER
         firebaseDB
           .ref(`players/${this.state.playerId}`)
           .update(dataToSubmit)
           .then(() => {
             this.successForm("Update correctly");
+
+            // if update success then after 2 second redirect to admin_players page
+            setTimeout(() => {
+              this.props.history.push("/admin_players");
+            }, 2000);
           })
           .catch(e => {
             this.setState({ formError: true });
           });
       } else {
+        // ADD PLAYER
         firebasePlayers
           .push(dataToSubmit)
           .then(() => {
@@ -213,6 +223,7 @@ class AddEditPlayers extends Component {
           });
       }
     } else {
+      // IF FORM NOT-VALID
       this.setState({
         formError: true
       });
@@ -235,13 +246,14 @@ class AddEditPlayers extends Component {
   };
 
   render() {
+    console.log(this.state.formData);
     return (
       <AdminLayout>
         <div className="editplayers_dialog_wrapper">
           <h2>{this.state.formType}</h2>
           <div>
             <form onSubmit={event => this.submitForm(event)}>
-              <FileUploader
+              <Fileuploader
                 dir="players"
                 tag={"Player image"}
                 defaultImg={this.state.defaultImg}

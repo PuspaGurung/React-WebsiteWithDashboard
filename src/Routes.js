@@ -14,7 +14,6 @@ import AdminPlayers from "./Components/admin/players";
 import addEditPlayers from "./Components/admin/players/addEditPlayers";
 
 const Routes = props => {
-  console.log(props);
   return (
     <Layout>
       <Switch>

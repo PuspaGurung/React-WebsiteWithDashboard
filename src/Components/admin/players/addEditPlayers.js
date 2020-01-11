@@ -131,6 +131,7 @@ class AddEditPlayers extends Component {
               this.updateFields(playerData, playerId, "Edit player", url);
             })
             .catch(e => {
+              // If the player image doesnt exist in databse
               this.updateFields(
                 {
                   ...playerData,

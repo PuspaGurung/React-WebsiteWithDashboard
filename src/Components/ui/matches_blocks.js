@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 
 const MatchesBlock = ({ match }) => {
-  console.log(match);
   return (
     <Fragment>
       <div className="match-date">

@@ -11,7 +11,7 @@ class TheMatches extends Component {
     loading: false,
     matches: [],
     filterMatches: [],
-    playerFilter: "All",
+    playedFilter: "All",
     resultFilter: "All"
   };
   componentDidMount() {
@@ -26,14 +26,27 @@ class TheMatches extends Component {
     });
   }
 
-  showPlayed = played => {
+  showPlayedFilter = played => {
     const list = this.state.matches.filter(match => {
       return match.final === played;
     });
     this.setState({
       filterMatches: played === "All" ? this.state.matches : list,
-      playerFilter: played,
+      playedFilter: played,
+      // reset to Default (i.e active All) on show Result filter when click on Match-played filter button
       resultFilter: "All"
+    });
+  };
+
+  playedResultFilter = result => {
+    const list = this.state.matches.filter(match => {
+      return match.result === result;
+    });
+    this.setState({
+      filterMatches: result === "All" ? this.state.matches : list,
+      resultFilter: result,
+      // reset to Default (i.e active All) on show Mactches filter when click on Result filter button
+      playedFilter: "All"
     });
   };
 
@@ -42,21 +55,76 @@ class TheMatches extends Component {
       <main className="main">
         <div className="the-matches-container" style={{ display: "flex" }}>
           <div className="the-matches">
-            <div className="the-matches__filter">
+            <div className="the-matches__filter" style={{ display: "flex" }}>
               <div className="match-filter-box">
                 <h3 className="match-filter__title heading-tertiary">
                   Show matches:
                 </h3>
+                <div className="match-filter__btns">
+                  <button
+                    onClick={() => this.showPlayedFilter("All")}
+                    className={`btn-filter ${
+                      this.state.playedFilter === "All" ? "active" : ""
+                    }`}
+                  >
+                    All
+                  </button>
+                  <button
+                    onClick={() => this.showPlayedFilter("Yes")}
+                    className={`btn-filter ${
+                      this.state.playedFilter === "Yes" ? "active" : ""
+                    }`}
+                  >
+                    Played
+                  </button>
+                  <button
+                    onClick={() => this.showPlayedFilter("No")}
+                    className={`btn-filter ${
+                      this.state.playedFilter === "No" ? "active" : ""
+                    }`}
+                  >
+                    Not played
+                  </button>
+                </div>
               </div>
+
               <div className="match-filter-box">
                 <h3 className="match-filter__title heading-tertiary">
-                  Result game:
+                  Show result:
                 </h3>
                 <div className="match-filter__btns">
-                  <button onClick={() => this.showPlayed("All")}>All</button>
-                  <button onClick={() => this.showPlayed("Yes")}>Played</button>
-                  <button onClick={() => this.showPlayed("No")}>
-                    Not played
+                  <button
+                    onClick={() => this.playedResultFilter("All")}
+                    className={`btn-filter ${
+                      this.state.resultFilter === "All" ? "active" : ""
+                    }`}
+                  >
+                    All
+                  </button>
+                  <button
+                    onClick={() => this.playedResultFilter("W")}
+                    className={`btn-filter ${
+                      this.state.resultFilter === "W" ? "active" : ""
+                    }`}
+                  >
+                    W
+                  </button>
+                  <button
+                    onClick={() => this.playedResultFilter("L")}
+                    className={`btn-filter ${
+                      this.state.resultFilter === "L" ? "active" : ""
+                    }`}
+                  >
+                    L
+                  </button>
+
+                  <button
+                    onClick={() => this.playedResultFilter("D")}
+                    className={`btn-filter ${
+                      this.state.resultFilter === "D" ? "active" : ""
+                    }`}
+                  >
+                    D
                   </button>
                 </div>
               </div>

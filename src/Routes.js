@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+
 import PrivateRoute from "./Components/authRoutes/PrivateRoutes";
 import PublicRoute from "./Components/authRoutes/PublicRoutes";
 
@@ -14,6 +15,7 @@ import AdminPlayers from "./Components/admin/players";
 import AddEditPlayers from "./Components/admin/players/addEditPlayers";
 import TheTeam from "./Components/theTeam";
 import TheMatches from "./Components/theMatches";
+import NotFoundPage from "./Components/ui/notFoundPage";
 
 const Routes = props => {
   return (
@@ -89,6 +91,7 @@ const Routes = props => {
           restricted={false}
           exact
         />
+        <PublicRoute component={NotFoundPage} restricted={false} exact />
       </Switch>
     </Layout>
   );

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { easePolyOut } from "d3-ease";
 import NodeGroup from "react-move/NodeGroup";
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 class MatchesList extends Component {
   state = {
     matcheslist: []
@@ -117,7 +117,22 @@ class MatchesList extends Component {
   };
 
   render() {
-    return <Fragment>{this.showMatches()}</Fragment>;
+    return (
+      <Fragment>
+        {this.props.loading ? (
+          <div className="progress">
+            <CircularProgress
+              style={{
+                color: "#98c6e9"
+              }}
+              thickness={7}
+            />
+          </div>
+        ) : (
+          this.showMatches()
+        )}
+      </Fragment>
+    );
   }
 }
 export default MatchesList;

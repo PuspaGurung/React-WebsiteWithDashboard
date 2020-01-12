@@ -4,7 +4,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Router } from "react-router-dom";
 
-//import "./Resources/css/app.css";
 import "./scss/main.scss";
 import Routes from "./Routes";
 import { firebase } from "./firebase";

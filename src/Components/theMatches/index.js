@@ -129,7 +129,10 @@ class TheMatches extends Component {
                 </div>
               </div>
             </div>
-            <MatchesList matches={this.state.filterMatches} />
+            <MatchesList
+              loading={this.state.loading}
+              matches={this.state.filterMatches}
+            />
           </div>
           <div className="league-table">
             <LeagueTable />

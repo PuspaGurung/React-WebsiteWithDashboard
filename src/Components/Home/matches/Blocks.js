@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import Fade from "react-reveal";
+
 import { firebaseMatches } from "../../../firebase";
 import { firebaseLooper, reverseArray } from "./../../ui/misc";
 import MatchesBlock from "./../../ui/matches_blocks";
@@ -8,10 +10,12 @@ class Blocks extends Component {
   };
   showMatches = matches =>
     matches
-      ? matches.map(match => (
-          <div className="matches__item" key={match.id}>
-            <MatchesBlock match={match} />
-          </div>
+      ? matches.map((match, i) => (
+          <Fade bottom key={i} delay={i * 40}>
+            <div className="match" key={match.id}>
+              <MatchesBlock match={match} />
+            </div>
+          </Fade>
         ))
       : null;
   componentDidMount() {
@@ -27,9 +31,7 @@ class Blocks extends Component {
   }
   render() {
     console.log(this.state.matches);
-    return (
-      <div className="matches">{this.showMatches(this.state.matches)}</div>
-    );
+    return <Fragment>{this.showMatches(this.state.matches)}</Fragment>;
   }
 }
 export default Blocks;

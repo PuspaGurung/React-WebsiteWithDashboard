@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Fade from "react-reveal";
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 import PlayerCard from "./../ui/playerCards";
 import Stripes from "./../../Resources/images/stripes.png";
 import { firebasePlayers, firebase } from "./../../firebase";
@@ -15,7 +15,6 @@ class TheTeam extends Component {
   componentDidMount() {
     firebasePlayers.once("value").then(snapshot => {
       const players = firebaseLooper(snapshot);
-      // console.log(players);
 
       // use Promise
       const promises = [];
@@ -66,9 +65,19 @@ class TheTeam extends Component {
   };
 
   render() {
-    console.log(this.state.players);
     return (
       <main className="main">
+        {this.state.loading ? (
+          <div className="progress">
+            <CircularProgress
+              style={{
+                color: "#98c6e9"
+              }}
+              thickness={7}
+            />
+          </div>
+        ) : null}
+
         <div className="team-container">
           {!this.state.loading ? (
             <Fragment>

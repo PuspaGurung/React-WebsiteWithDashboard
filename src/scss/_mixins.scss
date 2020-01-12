@@ -1,5 +1,8 @@
-//============== BORDER RADIOUS =================//
-//50%
+/*
+====== BORDER RADIOUS ========
+= 50%
+*/
+
 @mixin border-radius-50percent {
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -8,7 +11,10 @@
   -o-border-radius: 50%;
 }
 
-//============== TRANSFORM XY =================//
+/*
+====== TRANSFORM XY ========
+= -50%
+*/
 @mixin transform-y-minus50percent {
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -31,7 +37,10 @@
   -ms-transform: translate(-50%);
   -o-transform: translate(-50%);
 }
-//============== TRANSITION DELAY =================//
+/*
+====== TRANSITION DELAY ========
+= 0.3S
+*/
 @mixin transition-delay-sm {
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
@@ -40,7 +49,10 @@
   -o-transition: all 0.3s;
 }
 
-//============== TRANSFORM SCALE =================//
+/*
+====== TRANSFORM SCALE ========
+= 1.1
+*/
 @mixin transform-scale-lg {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -56,7 +68,10 @@
   -ms-transform: scale(1.15);
   -o-transform: scale(1.15);
 }
-//============== SKEW =================//
+/*
+====== SKEW ========
+= -125deg
+*/
 @mixin skew-sm {
   transform: skewX(-125deg);
   -webkit-transform: skewX(-125deg);
@@ -65,19 +80,24 @@
   -o-transform: skewX(-125deg);
 }
 
-//============== BOX SHADOW =================//
+/*
+====== BOX SHADOW ========
+*/
 @mixin box-shadow-sm {
-  box-shadow: 0 0.1rem 0.5rem $color-secondary-light;
-  -webkit-box-shadow: 0 0.1rem 0.5rem $color-secondary-light;
+  box-shadow: 0 0.1rem 0.5rem $color-white-secondary;
+  -webkit-box-shadow: 0 0.1rem 0.5rem $color-white-secondary;
 }
 
-//============== MEDIA QUERY =================//
-// == BREAK POINT ==
+/*
+====== MEDIA QUERY ========
+BREAK POINT -
 
-/* 0 - 600px: phone,
-600 - 900px> tablet portranit,
-900 - 1200px: tablet landscape,
-1200px > > : large screen width
+0 - 600px: phone,
+600px - 769px : ipad,
+769px - 1040px: ipad-pro,
+1040px - 1280px : laptop,
+1280px > : large -screen 
+
 */
 
 @mixin respond-mediaQuery($breakpoint) {

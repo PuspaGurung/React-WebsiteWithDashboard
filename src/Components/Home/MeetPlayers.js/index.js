@@ -6,7 +6,7 @@ class MeetPlayers extends Component {
     return (
       <div
         className="home_meetplayers"
-        style={{ background: `#fff url(${Stripes})` }}
+        style={{ background: `url(${Stripes})` }}
       >
         sdfsfsdf
       </div>

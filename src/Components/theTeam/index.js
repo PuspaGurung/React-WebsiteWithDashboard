@@ -50,7 +50,7 @@ class TheTeam extends Component {
       ? this.state.players.map((player, i) => {
           return player.position === category ? (
             <Fade left key={i} delay={i * 40}>
-              <div className="playercard-item" style={{ width: "200px" }}>
+              <div className="playercard-item">
                 <PlayerCard
                   number={player.number}
                   name={player.name}
@@ -67,61 +67,65 @@ class TheTeam extends Component {
   render() {
     return (
       <main className="main">
-        {this.state.loading ? (
-          <div className="progress">
-            <CircularProgress
-              style={{
-                color: "#98c6e9"
-              }}
-              thickness={7}
-            />
+        <div
+          className="team-container"
+          style={{ background: `#fff url(${Stripes})` }}
+        >
+          <div className="container">
+            {!this.state.loading ? (
+              <Fragment>
+                <div className="team-category">
+                  <h2 className="team-category__title heading-secondary">
+                    Keepers
+                  </h2>
+
+                  <div className="team-category__players">
+                    {this.showplayersByCategory("Keeper")}
+                  </div>
+                </div>
+
+                <div className="team-category">
+                  <h2 className="team-category__title heading-secondary">
+                    Defence
+                  </h2>
+
+                  <div className="team-category__players">
+                    {this.showplayersByCategory("Defence")}
+                  </div>
+                </div>
+
+                <div className="team-category">
+                  <h2 className="team-category__title heading-secondary">
+                    Midfield
+                  </h2>
+
+                  <div className="team-category__players">
+                    {this.showplayersByCategory("Midfield")}
+                  </div>
+                </div>
+
+                <div className="team-category">
+                  <h2 className="team-category__title heading-secondary">
+                    Striker
+                  </h2>
+
+                  <div className="team-category__players">
+                    {this.showplayersByCategory("Striker")}
+                  </div>
+                </div>
+              </Fragment>
+            ) : (
+              // show loading icon
+              <div className="progress">
+                <CircularProgress
+                  style={{
+                    color: "#98c6e9"
+                  }}
+                  thickness={7}
+                />
+              </div>
+            )}
           </div>
-        ) : null}
-
-        <div className="team-container">
-          {!this.state.loading ? (
-            <Fragment>
-              <div className="team-category">
-                <h2 className="team-category__title heading-secondary">
-                  Keepers
-                </h2>
-
-                <div className="team-category__players">
-                  {this.showplayersByCategory("Keeper")}
-                </div>
-              </div>
-
-              <div className="team-category">
-                <h2 className="team-category__title heading-secondary">
-                  Defence
-                </h2>
-
-                <div className="team-category__players">
-                  {this.showplayersByCategory("Defence")}
-                </div>
-              </div>
-
-              <div className="team-category">
-                <h2 className="team-category__title heading-secondary">
-                  Midfield
-                </h2>
-
-                <div className="team-category__players">
-                  {this.showplayersByCategory("Midfield")}
-                </div>
-              </div>
-
-              <div className="team-category">
-                <h2 className="team-category__title heading-secondary">
-                  Striker
-                </h2>
-
-                <div className="team-category__players">
-                  {this.showplayersByCategory("Striker")}
-                </div>
-              </div>
-            </Fragment>
-          ) : null}
         </div>
       </main>
     );

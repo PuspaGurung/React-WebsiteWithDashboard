@@ -8,7 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Link } from "react-router-dom";
-
 import AdminLayout from "./../../../HOC/AdminLayout";
 import { firebasePlayers } from "./../../../firebase";
 import { firebaseLooper, reverseArray } from "./../../ui/misc";
@@ -33,10 +32,15 @@ class AdminPlayers extends Component {
   render() {
     return (
       <AdminLayout>
-        <div className="admin-matches-details">
+        <div className="admin-players-details">
           <Paper>
-            <Table>
+            <Table stickyHeader aria-label="sticky table">
               <TableHead>
+                <TableRow>
+                  <TableCell align="center" colSpan={4}>
+                    <h2>Players details</h2>
+                  </TableCell>
+                </TableRow>
                 <TableRow>
                   <TableCell>First name</TableCell>
                   <TableCell>Last name</TableCell>
@@ -62,7 +66,7 @@ class AdminPlayers extends Component {
               </TableBody>
             </Table>
           </Paper>
-          <div className="admin-progress-icon">
+          <div className="progress-icon">
             {this.state.isLoading ? (
               <CircularProgress thickness={7} style={{ color: "#98c5e9" }} />
             ) : null}

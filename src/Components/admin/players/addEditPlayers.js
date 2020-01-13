@@ -250,56 +250,65 @@ class AddEditPlayers extends Component {
     console.log(this.state.formData);
     return (
       <AdminLayout>
-        <div className="editplayers_dialog_wrapper">
-          <h2>{this.state.formType}</h2>
-          <div>
-            <form onSubmit={event => this.submitForm(event)}>
-              <Fileuploader
-                dir="players"
-                tag={"Player image"}
-                defaultImg={this.state.defaultImg}
-                defaultImgName={this.state.formData.image.value}
-                resetImage={() => this.resetImage()}
-                filename={filename => this.storeFilename(filename)}
-              />
+        <div className="admin-handle-player">
+          <h2 className="admin-handle-player__title">{this.state.formType}</h2>
+          <form
+            className="admin-handle-player__form"
+            onSubmit={event => this.submitForm(event)}
+          >
+            <Fileuploader
+              dir="players"
+              tag={"Player image"}
+              defaultImg={this.state.defaultImg}
+              defaultImgName={this.state.formData.image.value}
+              resetImage={() => this.resetImage()}
+              filename={filename => this.storeFilename(filename)}
+              className="form-field upload-player-img"
+            />
 
-              <FormField
-                id={"name"}
-                formData={this.state.formData.name}
-                change={element => this.updateForm(element)}
-              />
+            <FormField
+              id={"name"}
+              formData={this.state.formData.name}
+              change={element => this.updateForm(element)}
+              className="form-field input-player-name"
+            />
 
-              <FormField
-                id={"lastname"}
-                formData={this.state.formData.lastname}
-                change={element => this.updateForm(element)}
-              />
+            <FormField
+              id={"lastname"}
+              formData={this.state.formData.lastname}
+              change={element => this.updateForm(element)}
+              className="form-field input-player-lastname"
+            />
 
-              <FormField
-                id={"number"}
-                formData={this.state.formData.number}
-                change={element => this.updateForm(element)}
-              />
+            <FormField
+              id={"number"}
+              formData={this.state.formData.number}
+              change={element => this.updateForm(element)}
+              className="form-field input-player-number"
+            />
 
-              <FormField
-                id={"position"}
-                formData={this.state.formData.position}
-                change={element => this.updateForm(element)}
-              />
+            <FormField
+              id={"position"}
+              formData={this.state.formData.position}
+              change={element => this.updateForm(element)}
+              className="form-field select-player-position"
+            />
 
-              <div className="success_label">{this.state.formSuccess}</div>
-              {this.state.formError ? (
-                <div className="error_label">Something is wrong</div>
-              ) : (
-                ""
-              )}
-              <div className="admin_submit">
-                <button onClick={event => this.submitForm(event)}>
-                  {this.state.formType}
-                </button>
-              </div>
-            </form>
-          </div>
+            <div className="success_label">{this.state.formSuccess}</div>
+            {this.state.formError ? (
+              <div className="error_label">Something is wrong</div>
+            ) : (
+              ""
+            )}
+            <div className="admin-submit-form">
+              <button
+                className="btn btn-secondary btn-submit"
+                onClick={event => this.submitForm(event)}
+              >
+                {this.state.formType}
+              </button>
+            </div>
+          </form>
         </div>
       </AdminLayout>
     );

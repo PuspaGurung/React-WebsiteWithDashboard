@@ -53,12 +53,12 @@ class TheMatches extends Component {
   render() {
     return (
       <main className="main">
-        <div className="the-matches-container" style={{ display: "flex" }}>
+        <div className="the-matches-container">
           <div className="the-matches">
-            <div className="the-matches__filter" style={{ display: "flex" }}>
+            <div className="the-matches__filter">
               <div className="match-filter-box">
                 <h3 className="match-filter__title heading-tertiary">
-                  Show matches:
+                  Filter match
                 </h3>
                 <div className="match-filter__btns">
                   <button
@@ -90,7 +90,7 @@ class TheMatches extends Component {
 
               <div className="match-filter-box">
                 <h3 className="match-filter__title heading-tertiary">
-                  Show result:
+                  Filter game result
                 </h3>
                 <div className="match-filter__btns">
                   <button

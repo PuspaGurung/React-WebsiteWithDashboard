@@ -295,100 +295,99 @@ class AddEditMatch extends Component {
   render() {
     return (
       <AdminLayout>
-        <div className="edit-match">
-          <h2 className="edit-match__title heading-secondary">
-            {this.state.formType}
-          </h2>
-          <div>
-            <form
-              className="edit-match__form"
-              onSubmit={event => this.submitForm(event)}
-            >
-              <FormField
-                id={"date"}
-                formData={this.state.formData.date}
-                change={element => this.updateForm(element)}
-                className="edit-form__select"
-              />
-              <div className="select_team_layout">
-                <div className="label_inputs">Local</div>
-                <div className="wrapper">
-                  <div className="left">
-                    <FormField
-                      id={"local"}
-                      formData={this.state.formData.local}
-                      change={element => this.updateForm(element)}
-                      className="edit-form__select"
-                    />
-                  </div>
-                  <div className="right">
-                    <FormField
-                      id={"resultLocal"}
-                      formData={this.state.formData.resultLocal}
-                      change={element => this.updateForm(element)}
-                    />
-                  </div>
-                </div>
-              </div>
+        <div className="admin-handle-match">
+          <h2 className="admin-handle-match__title">{this.state.formType}</h2>
+          <form
+            className="admin-handle-match__form"
+            onSubmit={event => this.submitForm(event)}
+          >
+            <FormField
+              id={"date"}
+              formData={this.state.formData.date}
+              change={element => this.updateForm(element)}
+              className="form-field input-match-date"
+            />
 
-              <div className="select_team_layout">
-                <div className="label_inputs">Local</div>
-                <div className="wrapper">
-                  <div className="left">
-                    <FormField
-                      id={"away"}
-                      formData={this.state.formData.away}
-                      change={element => this.updateForm(element)}
-                      className="edit-form__select"
-                    />
-                  </div>
-                  <div className="right">
-                    <FormField
-                      id={"resultAway"}
-                      formData={this.state.formData.resultAway}
-                      change={element => this.updateForm(element)}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="split_fields">
+            <div className="fields-group">
+              <div className="label-input">Local</div>
+              <div className="fields-wrapper">
                 <FormField
-                  id={"referee"}
-                  formData={this.state.formData.referee}
+                  id={"local"}
+                  formData={this.state.formData.local}
                   change={element => this.updateForm(element)}
+                  className="form-field select-team"
                 />
-                <FormField
-                  id={"stadium"}
-                  formData={this.state.formData.stadium}
-                  change={element => this.updateForm(element)}
-                />
-              </div>
 
-              <div className="split_fields">
                 <FormField
-                  id={"result"}
-                  formData={this.state.formData.result}
+                  id={"resultLocal"}
+                  formData={this.state.formData.resultLocal}
                   change={element => this.updateForm(element)}
-                />
-                <FormField
-                  id={"final"}
-                  formData={this.state.formData.final}
-                  change={element => this.updateForm(element)}
+                  className="form-field input-team-score"
                 />
               </div>
-              <div className="success_label">{this.state.formSuccess}</div>
-              {this.state.formError ? (
-                <div className="error_label">Something went wrong</div>
-              ) : (
-                ""
-              )}
-              <div className="admin_submit">
-                <button onClick={event => this.submitForm(event)}>
-                  {this.state.formType}
-                </button>
+            </div>
+
+            <div className="fields-group">
+              <div className="label-input">Away</div>
+              <div className="fields-wrapper">
+                <FormField
+                  id={"away"}
+                  formData={this.state.formData.away}
+                  change={element => this.updateForm(element)}
+                  className="form-field select-team"
+                />
+                <FormField
+                  id={"resultAway"}
+                  formData={this.state.formData.resultAway}
+                  change={element => this.updateForm(element)}
+                  className="form-field input-team-score"
+                />
               </div>
-            </form>
-          </div>
+            </div>
+
+            <FormField
+              id={"referee"}
+              formData={this.state.formData.referee}
+              change={element => this.updateForm(element)}
+              className="form-field input-referee"
+            />
+
+            <FormField
+              id={"stadium"}
+              formData={this.state.formData.stadium}
+              change={element => this.updateForm(element)}
+              className="form-field input-stadium"
+            />
+
+            <FormField
+              id={"result"}
+              formData={this.state.formData.result}
+              change={element => this.updateForm(element)}
+              className="form-field team-result"
+            />
+
+            <FormField
+              id={"final"}
+              formData={this.state.formData.final}
+              change={element => this.updateForm(element)}
+              className="form-field game-played-status"
+            />
+
+            <div className="success_label">{this.state.formSuccess}</div>
+            {this.state.formError ? (
+              <div className="error_label">Something went wrong</div>
+            ) : (
+              ""
+            )}
+            <div className="admin-submit-form">
+              <button
+                className="btn btn-secondary btn-submit"
+                onClick={event => this.submitForm(event)}
+              >
+                {this.state.formType}
+              </button>
+            </div>
+          </form>
         </div>
       </AdminLayout>
     );

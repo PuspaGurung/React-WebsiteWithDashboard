@@ -61,14 +61,9 @@ class MatchesList extends Component {
                   display: "flex"
                 }}
               >
-                <div className="match-item__teams" style={{ display: "flex" }}>
+                <div className="match-item__teams">
                   <div className="team">
-                    <div
-                      className="team__logo"
-                      style={{
-                        width: "80px"
-                      }}
-                    >
+                    <div className="team__logo">
                       <img
                         src={`/images/team_icons/${data.localThmb}.png`}
                         alt="team logo"
@@ -79,19 +74,14 @@ class MatchesList extends Component {
                   </div>
 
                   <div className="team">
-                    <div
-                      className="team__logo"
-                      style={{
-                        width: "80px"
-                      }}
-                    >
+                    <div className="team__logo">
                       <img
                         src={`/images/team_icons/${data.awayThmb}.png`}
                         alt="team logo"
                       />
                     </div>
                     <div className="team__name">{data.away}</div>
-                    <div className="team__result">{data.resulAway}</div>
+                    <div className="team__result">{data.resultAway}</div>
                   </div>
                 </div>
                 <div className="match-item__info">

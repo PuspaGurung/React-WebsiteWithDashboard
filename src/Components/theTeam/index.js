@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
+
 import Fade from "react-reveal";
 import CircularProgress from "@material-ui/core/CircularProgress";
+
 import PlayerCard from "./../ui/playerCards";
 import Stripes from "./../../Resources/images/stripes.png";
 import { firebasePlayers, firebase } from "./../../firebase";

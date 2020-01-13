@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { firebase } from "./../../firebase";
 import FileUploader from "react-firebase-file-uploader";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -65,10 +65,10 @@ class Fileuploader extends Component {
   };
   render() {
     return (
-      <div>
+      <Fragment>
         {!this.state.fileURL ? (
-          <div>
-            <div className="label_input">{this.props.tag}</div>
+          <Fragment>
+            <div className="label-input">{this.props.tag}</div>
             <FileUploader
               accept="image/*"
               name="image"
@@ -79,7 +79,7 @@ class Fileuploader extends Component {
               onUploadSuccess={this.handleUploadSuccess}
               onProgress={this.handleProgress}
             />
-          </div>
+          </Fragment>
         ) : null}
         {this.state.isUploading ? (
           <div className="progress">
@@ -92,14 +92,20 @@ class Fileuploader extends Component {
           </div>
         ) : null}
         {this.state.fileURL ? (
-          <div>
-            <div className="uploaded-player-img" style={{ width: "200px" }}>
+          <div
+            className={
+              this.props.className ? this.props.className : "utl-form-field"
+            }
+          >
+            <div className="player-img">
               <img src={this.state.fileURL} alt="player" />
             </div>
-            <button onClick={this.uploadAgain}>Remove</button>
+            <button className="btn btn-remove-img" onClick={this.uploadAgain}>
+              Remove image
+            </button>
           </div>
         ) : null}
-      </div>
+      </Fragment>
     );
   }
 }

@@ -19,20 +19,16 @@ class Header extends Component {
         }}
       >
         <ToolBar style={{ display: "flex" }}>
-          <div style={{ flexGrow: 1 }}>
-            <div className="header_logo">
-              <CityLogo Link={true} linkTo="/" width="7rem" height="7rem" />
+          <div className="header-wrap-lg">
+            <CityLogo Link={true} linkTo="/" width="7rem" height="7rem" />
+          </div>
+          <div className="header-wrap-sm">
+            <div className="header-nav">
+              <Link to="/the_team">The team</Link>
+              <Link to="/the_matches">Matches</Link>
+              <Link to="/sign_in">Dash board</Link>
             </div>
           </div>
-          <Link to="/the_team">
-            <Button color="inherit"> The team </Button>
-          </Link>
-          <Link to="/the_matches">
-            <Button color="inherit"> Matches </Button>
-          </Link>
-          <Link to="/sign_in">
-            <Button> The Dash board</Button>
-          </Link>
         </ToolBar>
       </AppBar>
     );

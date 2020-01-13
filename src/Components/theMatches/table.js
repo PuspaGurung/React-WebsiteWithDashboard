@@ -59,8 +59,8 @@ class LeagueTable extends Component {
 
   render() {
     return (
-      <div className="league_table_wrapper">
-        <div className="title">League Table</div>
+      <div className="league-table-wrapper">
+        <div className="league-table-title">League Table</div>
         <div style={{ background: "#98c6e9" }}>
           <Table>
             <TableHead>

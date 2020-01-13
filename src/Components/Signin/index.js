@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { firebase } from "./../../firebase";
 
+import { firebase } from "./../../firebase";
 import FormField from "./../ui/formFields";
 import { validateForm } from "./../ui/misc";
 
@@ -90,11 +90,13 @@ class SignIn extends Component {
       <main className="main sign-in">
         <div className="container">
           <div className="signin-wrapper">
+            <h2 className="heading-secondary signin-title ">
+              Login to dashboard
+            </h2>
             <form
               className="signin-form"
               onSubmit={event => this.submitForm(event)}
             >
-              <h2 className="heading-secondary ">Please Login</h2>
               <FormField
                 id={"email"}
                 formData={this.state.formData.email}
@@ -112,7 +114,10 @@ class SignIn extends Component {
                   Something is wrong, try again
                 </div>
               ) : null}
-              <button className="btn btn-secondary" type="submit">
+              <button
+                className="signin-form__submit-btn btn btn-secondary"
+                type="submit"
+              >
                 Log in
               </button>
             </form>

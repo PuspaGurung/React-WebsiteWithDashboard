@@ -40,10 +40,19 @@
         display: inline-block;
         position: relative;
         z-index: 12;
+        margin-bottom: 1rem;
+
+        input {
+          height: 4rem;
+        }
       }
       &__error-label,
       &__success-label {
         color: $color-red;
+      }
+
+      &__btn {
+        width: 8rem;
       }
     }
     .enroll-discl {

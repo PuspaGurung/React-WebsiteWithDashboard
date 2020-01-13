@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AdminLayout from "./../../../HOC/AdminLayout";
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+import AdminLayout from "./../../../HOC/AdminLayout";
 import { firebaseMatches } from "./../../../firebase";
 import { firebaseLooper, reverseArray } from "./../../ui/misc";
 
@@ -36,6 +36,11 @@ class AdminMatches extends Component {
           <Paper>
             <Table>
               <TableHead>
+                <TableRow>
+                  <TableCell align="center" colSpan={4}>
+                    <h2>Matches details</h2>
+                  </TableCell>
+                </TableRow>
                 <TableRow>
                   <TableCell>Date</TableCell>
                   <TableCell>Match</TableCell>
@@ -75,7 +80,7 @@ class AdminMatches extends Component {
               </TableBody>
             </Table>
           </Paper>
-          <div className="admin-progress-icon">
+          <div className="progress-icon">
             {this.state.isLoading ? (
               <CircularProgress thickness={7} style={{ color: "#98c5e9" }} />
             ) : null}

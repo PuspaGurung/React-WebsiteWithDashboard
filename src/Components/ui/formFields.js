@@ -18,7 +18,7 @@ const FormField = ({ id, formData, change, className }) => {
         formTemplate = (
           <Fragment>
             {formData.showLabel ? (
-              <div className="label_input">{formData.config.label}</div>
+              <div className="label-input">{formData.config.label}</div>
             ) : null}
             <input
               {...formData.config}
@@ -35,7 +35,7 @@ const FormField = ({ id, formData, change, className }) => {
         formTemplate = (
           <Fragment>
             {formData.showLabel ? (
-              <div className="label_input">{formData.config.label}</div>
+              <div className="label-input">{formData.config.label}</div>
             ) : null}
             <select
               value={formData.value}
@@ -60,7 +60,7 @@ const FormField = ({ id, formData, change, className }) => {
   };
 
   return (
-    <div className={`${className ? className : ""} utl-input-wrapper `}>
+    <div className={`${className ? className : "utl-form-field"}  `}>
       {renderTemplate()}
     </div>
   );

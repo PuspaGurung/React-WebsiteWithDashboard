@@ -75,7 +75,7 @@ class MeetPlayers extends Component {
                       border: "1px solid #0d1831"
                     }}
                   >
-                    Meet them here
+                    Meet all players
                   </Tag>
                 </div>
               </div>

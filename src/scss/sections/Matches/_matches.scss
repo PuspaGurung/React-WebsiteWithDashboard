@@ -1,8 +1,19 @@
 .the-matches-container {
   display: flex;
+  flex-flow: row;
   width: 100%;
+
+  //Screen width phone
+  @include respond-mediaQuery(phone) {
+    flex-flow: column;
+  }
   .the-matches {
     width: 75%;
+    //Screen width phone
+    @include respond-mediaQuery(phone) {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
     &__filter {
       display: flex;
       background: $color-blue-tertiary;
@@ -85,6 +96,13 @@
   }
   .league-table {
     width: 25%;
+
+    //Screen width phone
+    @include respond-mediaQuery(phone) {
+      width: 100%;
+      padding: 0 2rem;
+      margin-bottom: 3rem;
+    }
     &-title {
       background: $color-blue-secondary;
       color: $color-white-primary;

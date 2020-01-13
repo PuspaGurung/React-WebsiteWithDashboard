@@ -3,15 +3,26 @@
   background-color: $color-white-primary;
   .promotion-content {
     display: flex;
+    flex-flow: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 6rem;
+
+    // Screen width phone
+    @include respond-mediaQuery(phone) {
+      flex-flow: column;
+      justify-content: center;
+    }
 
     &__left {
       text-transform: uppercase;
       font-size: 15rem;
       flex-grow: 1;
       color: $color-blue-tertiary;
+      // Screen width phone
+      @include respond-mediaQuery(phone) {
+        margin-bottom: 3rem;
+      }
       span {
         display: block;
       }

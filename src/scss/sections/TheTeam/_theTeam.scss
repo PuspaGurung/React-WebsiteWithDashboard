@@ -33,6 +33,12 @@
         margin-bottom: 2rem;
         @include box-shadow-sm;
 
+        //Screen width phone
+        @include respond-mediaQuery(phone) {
+          width: 100%;
+          margin-right: 0;
+        }
+
         &:last-child {
           margin-right: 0;
         }

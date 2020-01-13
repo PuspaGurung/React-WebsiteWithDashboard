@@ -3,6 +3,8 @@ header {
     flex-grow: 1;
   }
   .header-wrap-sm {
+    flex-grow: 1;
+    text-align: right;
     .header-nav {
       a {
         padding: 0.6rem 0.2rem;
@@ -11,6 +13,7 @@ header {
         position: relative;
         overflow: hidden;
         display: inline-block;
+        font-size: 1.1rem;
 
         &::before {
           content: "";

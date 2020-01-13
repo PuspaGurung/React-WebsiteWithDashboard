@@ -7,6 +7,12 @@ main.main {
 .container {
   width: 102.4rem;
   margin: 0 auto;
+
+  // Screen width <=ipad width
+  @include respond-mediaQuery(ipad) {
+    width: 100%;
+    padding: 0 3rem;
+  }
 }
 
 //========== BUTTON =========

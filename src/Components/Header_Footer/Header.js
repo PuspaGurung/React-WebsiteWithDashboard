@@ -7,6 +7,12 @@ import { Link } from "react-router-dom";
 import { CityLogo } from "./../ui/icons";
 
 class Header extends Component {
+  state = {
+    activeNav: false
+  };
+  activeNav = () => {
+    console.log("handle active nav");
+  };
   render() {
     return (
       <AppBar
@@ -24,7 +30,13 @@ class Header extends Component {
           </div>
           <div className="header-wrap-sm">
             <div className="header-nav">
-              <Link to="/the_team">The team</Link>
+              <Link
+                className="active"
+                to="/the_team"
+                onClick={() => this.activeNav()}
+              >
+                The team
+              </Link>
               <Link to="/the_matches">Matches</Link>
               <Link to="/sign_in">Dash board</Link>
             </div>
